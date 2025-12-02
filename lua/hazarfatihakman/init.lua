@@ -2,7 +2,7 @@ print("-- Hazar Fatih Akman Neovim File --")
 ----
 print("- Remap loading -")
 
-require("hazarfatihakman.remap")
+require("hazarfatihakman.configs.remap")
 
 print("- Remap is loaded -")
 
@@ -10,11 +10,16 @@ print("- Remap is loaded -")
 print("- Plugins loading -")
 
 -- Load plugins
-require("hazarfatihakman.plugin_setup")
+require("hazarfatihakman.setup")
 
 print("- Plugins are loaded -")
 
 print("- Diagnostic config loading -")
+
+require("lualine").setup()
+
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 vim.diagnostic.config({
   virtual_text = false,

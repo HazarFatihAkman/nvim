@@ -1,15 +1,14 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "\\lazy\\lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if vim.fn.empty(vim.fn.glob(lazypath)) > 0 then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "--branch=stable",
-    "https://github.com/folke/lazy.nvim.git",
-    lazypath,
-  })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    })
 end
 
 vim.opt.rtp:prepend(lazypath)
@@ -41,13 +40,13 @@ end
 -- Add LuaRocks bin to PATH for Neovim
 vim.env.PATH = hererocks_path .. "\\bin;" .. vim.env.PATH
 
--- Load plugins
 require("lazy").setup({
   spec = {
-    { import = "hazarfatihakman.plugins" },
-    { import = "hazarfatihakman.themes" }
-  },
-  install = { colorscheme = { "habamax" } },
-  checker = { enabled = false },
+    { import = "hazarfatihakman.plugins.main"},
+    { import = "hazarfatihakman.plugins.telescope"},
+    { import = "hazarfatihakman.plugins.lualine"},
+    { import = "hazarfatihakman.plugins.theme"},
+    { import = "hazarfatihakman.plugins.git"},
+    { import = "hazarfatihakman.plugins.cmp"},
+  }
 })
-
