@@ -41,6 +41,7 @@ end
 vim.env.PATH = hererocks_path .. "\\bin;" .. vim.env.PATH
 
 require("lazy").setup({
+  checker = { enabled = false },
   spec = {
     { import = "hazarfatihakman.plugins.main"},
     { import = "hazarfatihakman.plugins.telescope"},
@@ -48,5 +49,6 @@ require("lazy").setup({
     { import = "hazarfatihakman.plugins.theme"},
     { import = "hazarfatihakman.plugins.git"},
     { import = "hazarfatihakman.plugins.cmp"},
+    { import = "hazarfatihakman.plugins.which_key"},
   }
 })
