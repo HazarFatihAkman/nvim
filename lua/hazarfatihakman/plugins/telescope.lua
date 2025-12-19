@@ -1,10 +1,8 @@
 return {
-  { 
-    "nvim-lua/plenary.nvim"
-  },
+  "nvim-lua/plenary.nvim",
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
     lazy = false,
-  },
+    dependencies = { "nvim-lua/plenary.nvim" },
+  }
 }
