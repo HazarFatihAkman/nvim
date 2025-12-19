@@ -28,17 +28,16 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      lspconfig.clangd.setup({
+      vim.lsp.config('clangd', {
         capabilities = capabilities,
         cmd = { "clangd", "--background-index", "--clang-tidy" },
       })
 
-      lspconfig.jdtls.setup({
+      vim.lsp.config('jdtls', {
         capabilities = capabilities,
-        root_dir = lspconfig.util.root_pattern("mvnw", "gradlew", "pom.xml", "build.gradle", ".git"),
+        root_markers = { "mvnw", "gradlew", "pom.xml", "build.gradle", ".git" },
       })
     end,
   },
