@@ -28,6 +28,7 @@ require("lazy").setup({
     { import = "hazarfatihakman.plugins.which_key" },
     { import = "hazarfatihakman.plugins.treesitter" },
     { import = "hazarfatihakman.plugins.lsp" },
+    { import = "hazarfatihakman.plugins.conform" },
   }
 })
 

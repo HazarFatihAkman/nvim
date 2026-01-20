@@ -39,6 +39,33 @@ return {
         capabilities = capabilities,
         root_markers = { "settings.gradle", "settings.gradle.kts", "build.gradle.kts", "mvnw", "gradlew", "pom.xml", "build.gradle", ".git" },
       })
+
+      vim.lsp.config("vtsls", {
+        capabilities = capabilities,
+        settings = {
+          typescript = {
+            updateImportsOnRename = "always",
+            suggest = {
+              completeFunctionCalls = true,
+            }
+          }
+        }
+      })
+
+      vim.lsp.config("tailwindcss", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("eslint", {
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+      })
+
     end,
   },
 }
