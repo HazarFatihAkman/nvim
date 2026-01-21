@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 -- Folder & File Remap
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = 'Exit file' })
 vim.keymap.set("n", "<leader>e", ':e ', { desc = 'Start :e command' })
-
+vim.keymap.set("n", "<leader><Tab>", ':tabnext<CR>', { noremap = true, silent = true })
 -- Tab
 
 vim.opt.tabstop = 2
